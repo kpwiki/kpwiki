@@ -18,3 +18,9 @@ comment: false
 
 * 미국, 유럽, 일본 약전에 수재되어 있는지 간결하게 보여줍니다.
 
+# 유용한 사이트
+
+* [대한민국 약전](https://www.mfds.go.kr/brd/m_211/view.do?seq=14317&srchFr=&srchTo=&srchWord=약전&srchTp=0&itm_seq_2=0&multi_itm_seq=0&company_cd=&company_nm=&page=1)
+* [USP-NF](https://www.uspnf.com)
+* [EDQM](https://www.edqm.eu)
+* [JP 17](https://www.pmda.go.jp/english/rs-sb-std/standards-development/jp/0019.html)
