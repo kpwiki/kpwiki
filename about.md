@@ -6,6 +6,8 @@ comment: false
 ---
 
 <div class="contact">
+        <a href="https://twitter.com/{{ site.twitter_username }}">문의</a>
+        :: 
         <a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a>
 </div>
 <br>
