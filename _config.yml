@@ -1,17 +1,17 @@
 # Site settings
-title: 기계인간 John Grib
-url: "https://johngrib.github.io"
+title: 약전위키
+url: "https://kpwiki.github.io"
 baseurl: ""
 description: >
-    기계인간 블로그
+    대한민국약전 및 국외약전 위키
 
 # My information
-email: johngrib82@gmail.com
-author: 기계인간 John Grib
-profile: 유물론자
-twitter_username: John_Grib
-github_username: johngrib
-disqus_shortname: johngrib
+email: kpwiki12@gmail.com
+author: kpwiki
+profile: 대한약전
+twitter_username: kpwiki
+github_username: kpwiki
+disqus_shortname: kpwiki
 
 # Build settings
 plugins:
@@ -38,8 +38,8 @@ collections:
 
 # Comment Service
 disqus:
-  id: johngrib
-  shortname: johngrib
+  id: kpwiki
+  shortname: kpwiki
 
 google_analytics:
   ua: UA-110224147-1
@@ -47,8 +47,8 @@ google_analytics:
 google_adsense:
   client: ca-pub-3675948545737694
 
-blame: "https://github.com/johngrib/johngrib.github.io/blame/master/_wiki"
-edit: "https://github.com/johngrib/johngrib.github.io/edit/master/_wiki"
-issue: "https://github.com/johngrib/johngrib.github.io/issues/new"
+blame: "https://github.com/kpwiki/kpwiki.github.io/blame/master/_wiki"
+edit: "https://github.com/kpwiki/kpwiki.github.io/edit/master/_wiki"
+issue: "https://github.com/kpwiki/kpwiki.github.io/issues/new"
 
 timezone: "Asia/Seoul"
