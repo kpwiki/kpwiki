@@ -4,7 +4,7 @@ title   : 에스오메프라졸스트론튬수화물
 summary : 
 date    : 2019-09-18 00:00:12 +0900
 updated : 2019-09-18 00:00:34 +0900
-tag     : KP 의약품각조1부 USP
+tag     : KP 의약품각조1부 원료의약품 USP
 toc     : true
 public  : true
 parent  : KP3

@@ -4,7 +4,7 @@ title   : 사르포그렐레이트염산염
 summary : 
 date    : 2019-09-18 00:00:12 +0900
 updated : 2019-09-18 00:00:34 +0900
-tag     : KP 의약품각조1부 JP 라세믹혼합물
+tag     : KP 의약품각조1부 원료의약품 JP 라세믹혼합물
 toc     : true
 public  : true
 parent  : KP3
