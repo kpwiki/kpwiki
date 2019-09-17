@@ -23,7 +23,7 @@ comment: false
 
 # 유용한 사이트
 
-* [대한민국 약전](https://www.mfds.go.kr/brd/m_211/view.do?seq=14317&srchFr=&srchTo=&srchWord=약전&srchTp=0&itm_seq_2=0&multi_itm_seq=0&company_cd=&company_nm=&page=1)
+* [대한민국 약전(제2019-11호, 2019.2.28) 고시전문](https://www.mfds.go.kr/brd/m_211/view.do?seq=14317&srchFr=&srchTo=&srchWord=약전&srchTp=0&itm_seq_2=0&multi_itm_seq=0&company_cd=&company_nm=&page=1)
 * [USP-NF](https://www.uspnf.com)
 * [EDQM](https://www.edqm.eu)
 * [JP 17](https://www.pmda.go.jp/english/rs-sb-std/standards-development/jp/0019.html)
