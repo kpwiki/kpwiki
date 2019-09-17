@@ -1,46 +1,41 @@
 ---
 layout  : wiki
-title   : Java GC 튜닝
+title   : 사르포그렐레이트염산염
 summary : 작성중인 문서
 date    : 2019-09-12 22:35:34 +0900
 updated : 2019-09-16 12:56:47 +0900
-tag     : java gc
+tag     : KP 라세믹혼합물 
 toc     : true
 public  : true
-parent  : Java
+parent  : KP
 latex   : true
 ---
 * TOC
 {:toc}
 
-* 이 글은 Oracle의 "HotSpot Virtual Machine Garbage Collection Tuning Guide"의 Java 8 버전부터 12 버전까지의 문서를 읽고 정리한 문서이다.
-* 이 문서에서는 원본 문서의 이름을 "HTG"로 줄여 부르기로 한다. **H**otSpot Virtual Machine Garbage Collection **T**uning **G**uide.
-    * HTG-08, HTG-12는 각각 Java 8 버전의 HTG와 Java 12 버전의 HTG를 말한다.
+# 기본 정보
 
+* Sarpogrelate Hydrochloride
+* 라세믹혼합물
+* C24H31NO6‧HCl
+* 465.97
+* 1-[2-(Dimethylamino)-1-[[2-[2-(3-methoxyphenyl)ethyl]phenoxy]methyl]ethyl hydrogen butanedioate hydrochloride
+* 135159-51-2
+* 이 약은 정량할 때 환산한 무수물에 대하여 사르포그렐레 이트염산염 (C24H31NO6·HCl : 465.97) 98.5 ∼ 101.0 %를 함유한다.
 
-# Garbage Collector란 무엇인가?
+# 성상
 
-* GC의 정의는 HTG-08 과 HTG-09 ~ HTG-12 가 미묘하게 다른데, 9 부터 G1GC가 기본값이 되었기 때문이다.
+* 이 약은 흰색의 결정성 가루이다.
+* 이 약은 물 또는 에탄올(95)에 녹기 어렵다.
+* 이 약은 0.01 mol/L 염산시액에 녹는다.
+* 이 약의 수용액(1 → 100)은 선광성을 나타내지 않는다. 
+* 이 약은 결정다형을 나타낸다.
 
-## Java 9 ~ 12
+# 확인시험
 
->
-* [HTG-12](https://docs.oracle.com/en/java/javase/12/gctuning/introduction-garbage-collection-tuning.html ), [HTG-11](https://docs.oracle.com/en/java/javase/11/gctuning/introduction-garbage-collection-tuning.html ), [HTG-10](https://docs.oracle.com/javase/10/gctuning/introduction-garbage-collection-tuning.htm ), [HTG-09](https://docs.oracle.com/javase/9/gctuning/introduction-garbage-collection-tuning.htm )
+## 1)
 
-GC는 애플리케이션의 동적 메모리 할당 요청을 자동으로 관리한다.
-
-GC는 다음 작업을 통해 자동으로 동적 메모리를 관리한다.
-
-* 운영 체제로부터 메모리를 받아 할당에 사용한다.
-* 애플리케이션이 메모리를 요청하면 전달해 준다.
-* 애플리케이션이 메모리의 어떤 부분을 사용 중인지 확인한다.
-* 사용되지 않은 메모리를 회수하여 애플리케이션이 메모리를 재사용 할 수 있도록 한다.
-
-Java HotSpot 가비지 수집기는 다음 방법들을 사용해 GC 효율을 향상시키려 한다.
-
-* generational 청소(scavenging).
-* 멀티 스레드를 사용해 병렬로 작업하거나, 애플리케이션이 돌아갈 때 백그라운드에서 작업한다.
-* 라이브 오브젝트 압축.
+* 이 약 및 사르포그렐레이트염산염표준품의 0.01 mol/L 염산시액용액(1 → 20000)을 가지고 자외가 시부흡광도측정법에 따라 흡수스펙트럼을 측정할 때 같은 파장에서 같은 강도의 흡수를 나타낸다.
 
 ## Java 8
 
