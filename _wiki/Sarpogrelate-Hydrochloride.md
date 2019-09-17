@@ -1,7 +1,7 @@
 ---
 layout  : wiki
 title   : 사르포그렐레이트염산염
-summary : 작성중인 문서
+summary : 
 date    : 2019-09-12 22:35:34 +0900
 updated : 2019-09-18 12:56:47 +0900
 tag     : KP 의약품각조1부 JP 라세믹혼합물
