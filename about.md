@@ -7,7 +7,6 @@ comment: false
 
 <div class="contact">
         <a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a>
-        <!-- <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a> -->
 </div>
 
 # 간편한 대한민국 약전 검색
