@@ -14,7 +14,7 @@ comment: false
 
 * 대한민국 약전의 의약품각조를 항목별로 간결하게 보여줍니다.
 * [대한민국 약전](https://www.mfds.go.kr/brd/m_211/view.do?seq=14317&srchFr=&srchTo=&srchWord=약전&srchTp=0&itm_seq_2=0&multi_itm_seq=0&company_cd=&company_nm=&page=1)(제2019-11호, 2019.2.28) 고시전문을 활용합니다.
-* 옮기는 과정에서 오류가 있을 수 있습니다. 꼭 [대한민국 약전](https://www.mfds.go.kr/brd/m_211/view.do?seq=14317&srchFr=&srchTo=&srchWord=약전&srchTp=0&itm_seq_2=0&multi_itm_seq=0&company_cd=&company_nm=&page=1) 원본을 확인하시기 바랍니다.
+* 옮기는 과정에서 오류가 발생할 수 있으니, [대한민국 약전](https://www.mfds.go.kr/brd/m_211/view.do?seq=14317&srchFr=&srchTo=&srchWord=약전&srchTp=0&itm_seq_2=0&multi_itm_seq=0&company_cd=&company_nm=&page=1) 원본을 확인하시기 바랍니다.
 
 # 국외 약전 수재 현황 검색
 
