@@ -7,7 +7,7 @@ updated : 2019-09-18 00:00:34 +0900
 tag     : KP 의약품각조1부 JP 라세믹혼합물
 toc     : true
 public  : true
-parent  : KP KP-3 JP racemate
+parent  : KP3
 latex   : true
 ---
 * TOC
