@@ -1,6 +1,6 @@
 ---
 layout  : category
-title   : 의약품각조1부
+title   : 약전
 summary :
 date    : 2019-09-18 00:00:12 +0900
 updated : 2019-09-18 00:00:12 +0900
