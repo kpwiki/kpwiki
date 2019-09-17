@@ -1,168 +1,73 @@
 ---
 layout  : wiki
-title   : Java HotSpot VM Parallel Collecor
-summary : Java8 디폴트 GC
-date    : 2019-09-16 12:18:37 +0900
-updated : 2019-09-16 12:31:42 +0900
-tag     : java gc
+title   : 산소
+summary : 작성중인 문서
+date    : 2019-09-12 22:35:34 +0900
+updated : 2019-09-17 12:56:47 +0900
+tag     : KP 의약품각조1부
 toc     : true
 public  : true
-parent  : Java
-latex   : false
+parent  : KP
+latex   : true
 ---
 * TOC
 {:toc}
 
-* 이 글은 Oracle의 "HotSpot Virtual Machine Garbage Collection Tuning Guide"의 Java 8 버전부터 12 버전까지의 문서를 읽고 정리한 문서이다.
-* 이 문서에서는 원본 문서의 이름을 "HTG"로 줄여 부르기로 한다. **H**otSpot Virtual Machine Garbage Collection **T**uning **G**uide.
-    * HTG-08, HTG-12는 각각 Java 8 버전의 HTG와 Java 12 버전의 HTG를 말한다.
+# 기본 정보
 
-> [HTG-12](https://docs.oracle.com/en/java/javase/12/gctuning/parallel-collector1.html#GUID-5A7866BE-59DF-44AD-B51A-274DE3F2BF59 ), [HTG-11](https://docs.oracle.com/en/java/javase/11/gctuning/parallel-collector1.html#GUID-DCDD6E46-0406-41D1-AB49-FB96A50EB9CE ), [HTG-10](https://docs.oracle.com/javase/10/gctuning/parallel-collector1.htm#JSGCT-GUID-DCDD6E46-0406-41D1-AB49-FB96A50EB9CE ), [HTG-09](https://docs.oracle.com/javase/9/gctuning/parallel-collector1.htm#JSGCT-GUID-DCDD6E46-0406-41D1-AB49-FB96A50EB9CE ), [HTC-08](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/parallel.html#parallel_collector )
+* Oxygen
+* O2 : 32.00
+* Oxygen [7782-44-7]
+* 이 약은 공기를 가지고 액화분리(Air-Liquifaction)하여 만든다.
+* 이 약은 정량할 때 산소(O2) 99.5 ∼ 101.0 vol %를 함유한다.
 
-# Parallel Collector?
+# 국외 약전
 
-Parallel Collector는 throughput collector 라고 부르기도 한다.
+* ` USP `
+* ` EP `
+* ` BP `
+* ` JP `
 
-Parallel Collector는 2개 이상의 프로세서에서 Serial GC보다 나은 성능을 보이는 GC이다.
+# 성상
 
-| 프로세서 | Serial Collector와의 비교                            |
-|----------|------------------------------------------------------|
-| 1        | Serial GC와 비슷한 성능                              |
-| 2        | heap 사이즈가 크다면 Serial GC보다 조금 더 좋은 성능 |
-| 3 이상   | Serial GC보다 훨씬 뛰어난 성능                       |
+* 이 약은 무색의 기체로 냄새는 없다.
+* 이 약 1 mL는 20 ℃, 101.3 kPa에서 물 약 32 mL 또는 에탄올(95) 약 7 mL에 녹는다.
+* 이 약 1000 mL는 0 ℃, 101.3 kPa에서 약 1.429 g이다.
 
-Parallel Collector는 `-XX:ParallelGCThreads=<N>`으로 스레드 수를 설정할 수 있다. 이 $$N$$ 값은 이 컬렉터에서 매우 중요한 값이다.
+# 확인시험
 
-* $$N \lt 8$$: $$N$$ 개의 GC 스레드를 사용한다.
-* $$N \gt 8$$: $$N$$개의 하드웨어 스레드가 있는 머신에서 일정 비율 만큼의 GC 스레드를 사용한다. $$N$$이 커지면 이 비율은 $${5 \over 8}$$로 수렴한다.
+* 이 약을 가지고 정량법에 따라 시험할 때, 산소표준가스와 동일한 상자성 신호를 나타낸다.
 
-# 조각화 문제
+# 순도시험
 
-Parallel Collector는 여러 스레드가 마이너 GC 작업을 하기 때문에 메모리 조각화가 발생할 수 있다.
-마이너 GC를 수행하는 스레드가 프로모션을 할 때 old gen의 일부 공간을 예약해 사용하는데, 이 공간을 프로모션 버퍼라 한다. 메모리 조각화는 프로모션 버퍼에서 발생한다. 스레드 수를 줄이고 old gen의 크기를 늘려주면 조각화 현상은 줄어들게 된다.
+* 이 약의 채취량은 그 용기를 시험하기 전 6 시간 이상 18 ∼ 22 ℃를 유지한 다음 20 ℃에서 기압 101.3 kPa의 용량으로 환산한 것으로 한다.
 
+## 1) 이산화탄소
 
-# Parallel Collector의 generation 구조
+* 수산화바륨시액 50 mL를 네슬러관에 넣는다.  안지름 약 1 mm의 기체 도입관 끝을 관 바닥으로부터 2 mm 위치에 놓고 15 분간 이 약 1000 mL를 네슬러관 중에 통할 때 액의 혼탁은 다음 비교액보다 진하지 않다.
+◦ 비교액  수산화바륨시액 50 mL를 네슬러관에 넣고 탄산수소나트륨 0.1 g을 새로 끓여 식힌 물 100 mL에 녹인 액 1 mL를 넣는다.
 
-Parallel Collector의 generation 구조는 다음과 같이 생겼다.
+## 2) 질소
 
-```ascii-art
-                             <--------- Young ---------->
-+-------------+-------------+---------+--------+----+----+
-|             |   Virtual   | Virtual |  Eden  | Sv | Sp |
-+-------------+-------------+---------+--------+----+----+
- <---------- Old ---------->
-                                         Sv: Survivor
-                                         Sp: Space
-```
-
-# Parallel GC 사용과 튜닝
-
-* `-XX:+UseParallelGC`를 설정하면 Parallel GC를 사용할 수 있다.
-    * 또는 하드웨어와 운영체제 환경을 고려해 가상 머신이 알아서 Parallel GC를 셋팅해 사용한다.
-
-## GC 일시 정지 시간의 최대값 설정
-
-* `-XX:MaxGCPauseMillis=<N>`으로 설정할 수 있다.
-    * 이 옵션을 설정하면 가상 머신은 `N`ms 이하의 일시 정지 시간을 맞추기 위해 heap 사이즈와 여러 옵션들을 자동으로 조절한다.
-    * "일시 정지 시간"을 짧게 만드는 튜닝을 하면 "전체 처리량"이 줄어든다는 상식을 잊지 말자.
-
-## 처리량(throughput) 향상
-
-처리량은 다음과 같이 계산한다.
-
-$${ GC시간 \over GC시간 + \text{애플리케이션 처리 시간 }}$$
-
-* 처리량:  GC에 소모된 시간과 애플리케이션 처리 시간의 비율로 계산한다.
-* `-XX:GCTimeRatio=<N>` 옵션을 설정하면 이 비율을 $${ 1 \over 1 + N }$$으로 조절한다.
-    * 예를 들어, $$N = 19$$ 이면 $${ 1 \over 1 + 19 }$$ 이므로, 전체 시간의 5% 가 GC에 사용된다.
-    * 기본값은 99. 즉, 1% 의 시간이 GC에 사용된다.
-
-## Footprint
-
-* footprint 최대 heap 사이즈는 `-Xmx` 옵션으로 설정할 수 있다.
-* GC는 다른 목표를 달성하는 한도에서 heap 사이즈를 최소화하려한다.
-
-## Parallel GC의 목표 우선순위
-
-1. 최대 일시 정지 시간 최소화
-2. 처리량 최대화
-3. heap 사이즈 최소화(footprint 목표)
-
-Parallel GC는 1번 목표를 달성한 이후에야만 2번 목표를 달성하려 하고, 2번 목표가 달성된 이후에야만 3번 목표를 달성하려 한다.
-
-**Parallel GC가 generation 사이즈를 조절하는 과정**
-
-1. 평균 일시정지 시간 등, GC 가동에 필요한 통계는 각 GC 작업이 끝날 때마다 업데이트된다.
-2. 목표를 달성했는지 확인하기 위한 테스트를 수행한다.
-3. generation 사이즈를 조정한다.
-    * generation은 20% 씩 증가하고 5% 씩 감소한다.
-    * 한 번에 한 개의 generation 사이즈만 조절한다.
-    * 두 generation의 일시 정지 시간 목표가 동시에 달성되면, 일시 정지 시간이 더 큰 쪽의 generation 사이즈를 줄인다.
-
-단, `System.gc()` 호출로 인한 GC 작업은 통계 계산에서 제외되며, generation 사이즈 조정을 하지 않는다.
-
-한편 generation의 증감율을 직접 조절하려면
-증가율이 $$X$$% 이고, 감소율은 $${ X \over D }$$% 라는 점을 기억해야 한다.
-
-사이즈 조정 옵션은 다음과 같다.
-
-* `-XX:YoungGenerationSizeIncrement=<Y>`로 $$X$$를 설정할 수 있다.
-* `-XX:AdaptiveSizeDecrementScaleFactor=<D>`로 $$D$$를 설정할 수 있다.
-
-old gen의 경우 다음과 같이 증가율을 설정할 수 있다.
-
-* `-XX:TenuredGenerationSizeIncrement=<T>`로 old gen의 증가율을 설정할 수 있다.
-
-
-예를 들어 커지는 비율이 30% 일 때, 줄어드는 비율을 15% 로 맞추고 싶다면 `-XX:AdaptiveSizeDecrementScaleFactor=2`로 설정한다.
-
-한편, GC가 최초 시작시 generation 크기를 증가시키기로 결정했다면 증가율에 보정값이 붙을 수 있다. 이런 보정값은 시작할 때의 성능을 향상시키는 것이 목적이기 때문에 GC가 여러 차례 수행되면서 알아서 사라지게 된다. 같은 이유로 감소율에 대한 보정값은 없다.
-
-## Parallel GC의 heap 사이즈
-
-* 기본적으로는 시스템 메모리 양을 바탕으로 계산된 값을 쓴다.
-* 최대 heap 사이즈의 디폴트 값은 물리적 메모리의 $${1 \over 4}$$.
-    * `-Xmx`(maximum heap size)로 조절할 수 있다.
-* heap 사이즈 초기값은 물리적 메모리의 $${1 \over 64}$$.
-    * `-Xms`(initial heap size)로 조절할 수 있다.
-* young gen에 할당된 최대 사이즈는 토탈 heap 사이즈의 $${1 \over 3}$$.
-
-애플리케이션을 최적으로 돌릴 수 있는 heap 사이즈를 알고 있다면 `-Xms`와 `-Xmx`를 같은 값으로 설정해 주도록 한다.
-만약 잘 모르겠다면 가상 머신이 알아서 설정하게 한다. 가상 머신은 초기값부터 시작해서 heap 사이즈를 조절하며 heap 사용량과 성능 사이의 균형점을 찾으려 한다.
-
-**heap 사이즈 확인**
-
-옵션 설정에 따른 기본값을 확인하려면 `-XX:+PrintFlagsFinal` 옵션을 사용한다.
-
-다음은 내 로컬 컴퓨터에서 출력한 결과이다.
-
+* 이 약 1.0 mL를 감압마개를 단 내압금속제 밀봉용기에서 직접 폴리염화비닐제 도입관을 써서 기체크로마토그래프용기체계량관 또는 시린지로 취한다. 이것을 가지고 다음 조건으로 기체크로마토그래프법에 따라 시험하여 질소의 피크면적 AT를 구한다. 따로 혼합기체조제기에 질소 0.50 mL를 취하고 운반기체를 넣어 전체량을 정확하게 100 mL로 하여 잘 섞는다. 그 1.0 mL를 가지고 이 약과 같은 방법으로 조작하여 질소의 피크면적 AS를 구할 때 AT는 AS보다 작다.
 ```sh
-$ java -XX:+PrintFlagsFinal -XX:+UseParallelGC  -version | egrep MaxHeap
-    uintx MaxHeapFreeRatio = 100           {manageable} {default}
-   size_t MaxHeapSize      = 4294967296    {product} {ergonomic}
-openjdk version "12.0.1" 2019-04-16
-OpenJDK Runtime Environment AdoptOpenJDK (build 12.0.1+12)
-OpenJDK 64-Bit Server VM AdoptOpenJDK (build 12.0.1+12, mixed mode, sharing)
+조작조건
+검출기 : 열전도도검출기
+칼  럼 : 안지름 약 3 mm, 길이 약 3 m인 관에 250 ∼ 355 μm의 기체크로마토그래프용제올라이트 (공경 0.5 nm)를 충전한다.
+칼럼온도 : 50 ℃ 부근의 일정 온도
+운반기체 : 수소 또는 헬륨
+유  량 : 질소의 유지시간이 약 5 분이 되도록 조정한다.
+칼럼의 선정 : 혼합기체조제기에 질소 0.5 mL를 취하고 이 약을 넣어 100 mL로 하여 잘 섞는다. 그 1.0 mL를 가지고 위의 조건으로 조작할 때 산소, 질소의 순서로 유출하고 각각의 피크가 완전하게 분리하는 것을 쓴다.
 ```
 
-**OutOfMemoryError**
+## 3) 일산화탄소  
 
-GC에 전체 시간의 98% 이상이 소모되고, heap의 2% 이하가 GC로 복구되면 OutOfMemoryError 가 발생한다.
+* 용기의 밸브를 열 때 액체상의 내용물은 관을 통과하는 동안 모두 기화하도록 충분한 길이의 관을 용기에 연결하고, 검출관으로 연결되는 도입부는 서리가 끼지 않도록 한다. 관(미리 장치 내 공기를 이 약으로 치환한다.)을 통해 이 약의 1000 ± 50 mL의 증기 상을 일산화탄소 검출관에 적절한 일정 속도로 통과시켜 일산화탄소를 측정할 때 0.001 % 미만이다. 다만, 오염을 막기 위해 기체부피측정장치는 검출관 아래쪽으로 연결하여 측정한다.
 
-이 에러는 heap이 너무 작을 때 애플리케이션이 오랫동안 실행되는 것을 방지하기 위한 기능이다.
+# 정량법
 
-`-XX:-UseGCOverheadLimit` 옵션을 설정하면 이 기능을 끌 수 있다.
+* 이 약을 검체가스로 한다. 따로 질소 표준가스, 산소 표준가스를 가지고 산소 정량법에 따라 마그네틱분석기로 정량한다.
 
-# 함께 읽기
+# 저장법
 
-* [[java-gc-tuning]]{Java GC 튜닝}
-
-# 참고문헌
-
-* [JDK 12 Garbage Collection Tuning Guide](https://docs.oracle.com/en/java/javase/12/gctuning/introduction-garbage-collection-tuning.html )
-* [JDK 11 Garbage Collection Tuning Guide](https://docs.oracle.com/en/java/javase/11/gctuning/introduction-garbage-collection-tuning.html )
-* [JDK 10 Garbage Collection Tuning Guide](https://docs.oracle.com/javase/10/gctuning/introduction-garbage-collection-tuning.htm )
-* [JDK 9 Garbage Collection Tuning Guide](https://docs.oracle.com/javase/9/gctuning/introduction-garbage-collection-tuning.htm )
-* [JDK 8 Garbage Collection Tuning Guide](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/ )
-
+* 내압금속제 밀봉용기에 넣고 40 ℃ 이하에 보존한다.
