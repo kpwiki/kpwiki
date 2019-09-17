@@ -4,7 +4,7 @@ title   : 사르포그렐레이트염산염
 summary : 작성중인 문서
 date    : 2019-09-12 22:35:34 +0900
 updated : 2019-09-16 12:56:47 +0900
-tag     : KP 라세믹혼합물 
+tag     : KP JP 라세믹혼합물
 toc     : true
 public  : true
 parent  : KP
@@ -14,6 +14,7 @@ latex   : true
 {:toc}
 
 # 기본 정보
+
 * Sarpogrelate Hydrochloride
 * 라세믹혼합물
 * C24H31NO6‧HCl
@@ -21,6 +22,10 @@ latex   : true
 * 1-[2-(Dimethylamino)-1-[[2-[2-(3-methoxyphenyl)ethyl]phenoxy]methyl]ethyl hydrogen butanedioate hydrochloride
 * 135159-51-2
 * 이 약은 정량할 때 환산한 무수물에 대하여 사르포그렐레이트염산염 (C24H31NO6·HCl : 465.97) 98.5 ∼ 101.0 %를 함유한다.
+
+# 국외 약전
+
+| JP |
 
 # 성상
 
