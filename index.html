@@ -9,14 +9,14 @@ adsense: false
             kpwiki :: 대한민국 대표 온라인 약전
         </H3>
     </div>
-    <div>
-        <a href="https://kpwiki.github.com/">간편한 대한민국 약전 검색</a>
-        +
-        <a href="https://kpwiki.github.com/">국외 약전 수재 여부 확인</a>
-    </div>
-    <br>
     <div class="contact">
+        <a href="https://kpwiki.github.com/about/">간편한 대한민국 약전 검색</a>
+        +
+        <a href="https://kpwiki.github.com/about/">국외 약전 수재 여부 확인</a>
+    </div>
+    <div></div>
         <a href="https://twitter.com/{{ site.twitter_username }}">twitter</a>
+        +
         <a href="/tag/">tag</a>
     </div>
 </div>
@@ -24,7 +24,7 @@ adsense: false
     <H3>최근 변경된 문서</H3>
     <ul class="post-list">
 {% assign documents = site.wiki | sort: 'updated' | reverse %}
-{% for doc in documents limit: 30 %}
+{% for doc in documents limit: 5 %}
     {% if doc.public == true and doc.title != 'wiki'%}
         <li>
             <div>
