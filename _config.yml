@@ -1,9 +1,9 @@
 # Site settings
-title: 약전위키
+title: kpwiki
 url: "https://kpwiki.github.io"
 baseurl: ""
 description: >
-    대한민국약전 및 국외약전 위키
+    대한민국 약전 검색 + 국외약전 수재 여부 확인
 
 # My information
 email: kpwiki12@gmail.com
