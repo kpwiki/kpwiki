@@ -7,7 +7,7 @@ updated : 2019-09-18 12:56:47 +0900
 tag     : KP 의약품각조1부 USP EP BP JP
 toc     : true
 public  : true
-parent  : KP
+parent  : KP KP-3 USP EP BP JP
 latex   : true
 ---
 * TOC
