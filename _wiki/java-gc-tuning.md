@@ -25,7 +25,7 @@ latex   : true
 
 # 국외 약전
 
-| JP |
+` JP `
 
 # 성상
 
